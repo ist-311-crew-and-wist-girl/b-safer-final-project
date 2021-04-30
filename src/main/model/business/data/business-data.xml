@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_121" class="java.beans.XMLDecoder">
+    <object class="main.model.business.Business">
+        <void property="idNum">
+            <int>10</int>
+        </void>
+        <void property="BusinessName">
+            <string>Michael's Pizza</string>
+        </void>
+        <void property="BusinessAddress">
+            <string>730 Cornwall Rd.</string>
+        </void>
+        <void property="BusinessRating">
+            <string>8.3</string>
+        </void>
+        <void property="BusinessSafetyWarning">
+            <string>Free hand sanitizer</string>
+        </void>
+        <void property="BusinessURL">
+            <string>https://www.linkedin.com/in/jasonnucci/</string>
+        </void>
+        <void property="BusinessPhone">
+            <string>123-456-7890</string>
+        </void>
+    </object>
+
+    <object class="main.model.business.Business">
+        <void property="idNum">
+            <int>11</int>
+        </void>
+        <void property="BusinessName">
+            <string>Governor's Pub</string>
+        </void>
+        <void property="BusinessAddress">
+            <string>211 W High St</string>
+        </void>
+        <void property="BusinessRating">
+            <string>9.1</string>
+        </void>
+        <void property="BusinessSafetyWarning">
+            <string>Masks worn, tables separated with barriers</string>
+        </void>
+        <void property="BusinessURL">
+            <string>https://www.linkedin.com/in/conner-m-smith/</string>
+        </void>
+        <void property="BusinessPhone">
+            <string>987-654-3210</string>
+        </void>
+    </object>
+
+    <object class="main.model.business.Business">
+        <void property="idNum">
+            <int>12</int>
+        </void>
+        <void property="BusinessName">
+            <string>Eat N Park</string>
+        </void>
+        <void property="BusinessAddress">
+            <string>412 Sid Street</string>
+        </void>
+        <void property="BusinessRating">
+            <string>9.5</string>
+        </void>
+        <void property="BusinessSafetyWarning">
+            <string>50% capacity, tables spread out</string>
+        </void>
+        <void property="BusinessURL">
+            <string>https://www.linkedin.com/in/damian-pfaff/</string>
+        </void>
+        <void property="BusinessPhone">
+            <string>412-871-8711</string>
+        </void>
+    </object>
+
+    <object class="main.model.business.Business">
+        <void property="idNum">
+            <int>13</int>
+        </void>
+        <void property="BusinessName">
+            <string>Pizza Mia</string>
+        </void>
+        <void property="BusinessAddress">
+            <string>71 Geno Lane</string>
+        </void>
+        <void property="BusinessRating">
+            <string>8.4</string>
+        </void>
+        <void property="BusinessSafetyWarning">
+            <string>No indoor seating</string>
+        </void>
+        <void property="BusinessURL">
+            <string>https://www.linkedin.com/in/hunter-dagon-20530b191/</string>
+        </void>
+        <void property="BusinessPhone">
+            <string>871-581-6668</string>
+        </void>
+    </object>
+
+    <object class="main.model.business.Business">
+        <void property="idNum">
+            <int>14</int>
+        </void>
+        <void property="BusinessName">
+            <string>Jordan's Gyros</string>
+        </void>
+        <void property="BusinessAddress">
+            <string>11 Staalsy Street</string>
+        </void>
+        <void property="BusinessRating">
+            <string>7.6</string>
+        </void>
+        <void property="BusinessSafetyWarning">
+            <string>Masks worn unless eating, all workers wear masks</string>
+        </void>
+        <void property="BusinessURL">
+            <string>https://www.linkedin.com/in/varalika-ananth-350b17196/</string>
+        </void>
+        <void property="BusinessPhone">
+            <string>111-130-2981</string>
+        </void>
+    </object>
+</java>

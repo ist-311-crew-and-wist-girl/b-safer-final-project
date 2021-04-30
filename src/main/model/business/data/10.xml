@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_121" class="java.beans.XMLDecoder">
+    <object class="main.model.business.BusinessReview">
+        <void property="rating">
+            <int>4</int>
+        </void>
+        <void property="comment">
+            <string>this business was rather clean, though there were rats under the tables, employees held unyielding eye contact 10/10</string>
+        </void>
+        <void property="businessToReview">
+            <object class="main.model.business.Business">
+                <void property="idNum">
+                    <int>10</int>
+                </void>
+                <void property="BusinessName">
+                    <string>Michael's Pizza</string>
+                </void>
+                <void property="BusinessAddress">
+                    <string>730 Cornwall Rd.</string>
+                </void>
+                <void property="BusinessRating">
+                    <string>8.3</string>
+                </void>
+                <void property="BusinessSafetyWarning">
+                    <string>Free hand sanitizer</string>
+                </void>
+                <void property="BusinessURL">
+                    <string>https://www.linkedin.com/in/jasonnucci/</string>
+                </void>
+                <void property="BusinessPhone">
+                    <string>123-456-7890</string>
+                </void>
+            </object>
+        </void>
+        <void property="reviewer">
+            <string>conner-s</string>
+        </void>
+    </object>
+</java>
