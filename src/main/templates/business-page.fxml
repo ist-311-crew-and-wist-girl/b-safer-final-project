@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.effect.DropShadow?>
@@ -10,6 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -20,28 +23,10 @@
             <ToolBar prefHeight="48.0" prefWidth="800.0" style="-fx-background-color: #292b2c;">
                <items>
                   <BorderPane prefHeight="38.0" prefWidth="788.0">
-                     <left>
-                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                           <image>
-                              <Image url="@icons/arrow-left.png" />
-                           </image>
-                           <BorderPane.margin>
-                              <Insets left="5.0" right="5.0" />
-                           </BorderPane.margin>
-                        </ImageView>
-                     </left>
                      <right>
                         <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="272.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Sign Up!" textFill="WHITE">
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="Calibri" size="14.0" />
-                                 </font>
-                              </Button>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Log In!" textFill="WHITE">
+                              <Button fx:id="logout" mnemonicParsing="false" onAction="#userLogout" style="-fx-background-color: #333333;" text="Logout" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin>
@@ -76,18 +61,193 @@
                            </children>
                         </HBox>
                      </right>
+                     <left>
+                        <Button fx:id="back" mnemonicParsing="false" onAction="#backToBusinessList" style="-fx-background-color: #333333;" textFill="WHITE" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets left="10.0" />
+                           </BorderPane.margin>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/arrow-left.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </left>
                   </BorderPane>
                </items>
-               <effect>
-                  <DropShadow />
-               </effect>
             </ToolBar>
             <VBox prefHeight="552.0" prefWidth="292.0">
                <children>
-                  <SplitPane dividerPositions="0.41102756892230574" prefHeight="559.0" prefWidth="800.0">
+                  <SplitPane dividerPositions="0.4849624060150376" prefHeight="559.0" prefWidth="800.0" style="-fx-background-color: #333333;">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="550.0" prefWidth="336.0" />
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="550.0" prefWidth="447.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="550.0" prefWidth="336.0" SplitPane.resizableWithParent="false">
+                           <children>
+                              <VBox layoutX="15.0" layoutY="10.0" prefHeight="550.0" prefWidth="337.0" style="-fx-background-color: #292b2c;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <children>
+                                    <BorderPane prefHeight="56.0" prefWidth="325.0">
+                                       <center>
+                                          <Label fx:id="businessNameLabel" text="BusinessName" textFill="WHITE" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font name="Calibri Bold" size="48.0" />
+                                             </font>
+                                             <BorderPane.margin>
+                                                <Insets bottom="10.0" top="10.0" />
+                                             </BorderPane.margin>
+                                          </Label>
+                                       </center>
+                                    </BorderPane>
+                                    <BorderPane prefHeight="49.0" prefWidth="325.0">
+                                       <left>
+                                          <Label text="Address:" textFill="WHITE" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font name="Calibri" size="14.0" />
+                                             </font>
+                                             <BorderPane.margin>
+                                                <Insets left="10.0" />
+                                             </BorderPane.margin>
+                                          </Label>
+                                       </left>
+                                       <bottom>
+                                          <Label fx:id="addressLabel" text="BusinessAddress" textFill="WHITE" visible="false" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font name="Calibri" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </bottom>
+                                    </BorderPane>
+                                    <BorderPane prefHeight="54.0" prefWidth="325.0">
+                                       <left>
+                                          <Label text="Safety Rating:" textFill="WHITE" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font name="Calibri" size="14.0" />
+                                             </font>
+                                             <BorderPane.margin>
+                                                <Insets left="10.0" />
+                                             </BorderPane.margin>
+                                          </Label>
+                                       </left>
+                                       <bottom>
+                                          <Label fx:id="ratingLabel" text="Label" textFill="WHITE" visible="false" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font name="Calibri" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </bottom>
+                                    </BorderPane>
+                                    <BorderPane layoutX="10.0" layoutY="128.0" prefHeight="53.0" prefWidth="325.0">
+                                       <left>
+                                          <Label text="Safety Warning:" textFill="WHITE" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font name="Calibri" size="14.0" />
+                                             </font>
+                                             <BorderPane.margin>
+                                                <Insets left="10.0" />
+                                             </BorderPane.margin>
+                                          </Label>
+                                       </left>
+                                       <bottom>
+                                          <Label fx:id="safetyWarningLabel" text="Label" textFill="WHITE" visible="false" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font name="Calibri" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </bottom>
+                                    </BorderPane>
+                                    <BorderPane layoutX="10.0" layoutY="173.0" prefHeight="58.0" prefWidth="325.0">
+                                       <left>
+                                          <Label text="Website:" textFill="WHITE" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font name="Calibri" size="14.0" />
+                                             </font>
+                                             <BorderPane.margin>
+                                                <Insets left="10.0" />
+                                             </BorderPane.margin>
+                                          </Label>
+                                       </left>
+                                       <bottom>
+                                          <Label fx:id="urlLabel" text="Label" textFill="WHITE" visible="false" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font name="Calibri" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </bottom>
+                                    </BorderPane>
+                                    <BorderPane layoutX="10.0" layoutY="218.0" prefHeight="61.0" prefWidth="325.0">
+                                       <left>
+                                          <Label text="Phone Number:" textFill="WHITE" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font name="Calibri" size="14.0" />
+                                             </font>
+                                             <BorderPane.margin>
+                                                <Insets left="10.0" />
+                                             </BorderPane.margin>
+                                          </Label>
+                                       </left>
+                                       <bottom>
+                                          <Label fx:id="phoneLabel" text="Label" textFill="WHITE" visible="false" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font name="Calibri" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </bottom>
+                                    </BorderPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="550.0" prefWidth="436.0" SplitPane.resizableWithParent="false">
+                           <children>
+                              <StackPane layoutX="134.0" layoutY="89.0" prefHeight="550.0" prefWidth="467.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <BorderPane prefHeight="60.0" prefWidth="467.0" style="-fx-background-color: #292b2c;">
+                                             <effect>
+                                                <DropShadow />
+                                             </effect>
+                                             <center>
+                                                <Label text="Reviews" textFill="WHITE" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font name="Calibri Bold" size="36.0" />
+                                                   </font>
+                                                </Label>
+                                             </center>
+                                          </BorderPane>
+                                          <VBox prefHeight="448.0" prefWidth="467.0">
+                                             <children>
+                                                <ScrollPane prefHeight="442.0" prefWidth="467.0">
+                                                   <content>
+                                                      <VBox fx:id="scrollPage" alignment="TOP_CENTER" prefHeight="612.0" prefWidth="393.0" style="-fx-background-color: #333333;" />
+                                                   </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </VBox>
+                                          <BorderPane prefHeight="59.0" prefWidth="467.0" style="-fx-background-color: #292b2c;">
+                                             <center>
+                                                <Button mnemonicParsing="false" style="-fx-background-color: #0275d8;" text="Leave a review!" textFill="WHITE" BorderPane.alignment="CENTER">
+                                                   <font>
+                                                      <Font name="Calibri" size="18.0" />
+                                                   </font>
+                                                   <effect>
+                                                      <DropShadow />
+                                                   </effect>
+                                                </Button>
+                                             </center>
+                                             <effect>
+                                                <DropShadow />
+                                             </effect>
+                                          </BorderPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </AnchorPane>
                     </items>
                   </SplitPane>
                </children>

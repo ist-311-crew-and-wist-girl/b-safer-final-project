@@ -1,13 +1,20 @@
 package main;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import main.model.business.Business;
+import main.model.business.BusinessReview;
+import main.model.business.ReviewLoader;
 
+import javax.swing.text.html.ImageView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -32,13 +39,13 @@ public class BusinessPageController extends AnchorPane implements Initializable 
     public Label phoneLabel;
 
     @FXML
-    private Button revList;
+    private VBox scrollPage;
 
     @FXML
-    private Button back;
+    private Button signup;
 
     @FXML
-    private Button review;
+    private Button login;
 
 
     private Main app;
@@ -49,6 +56,7 @@ public class BusinessPageController extends AnchorPane implements Initializable 
         this.business = businessToSet;
         this.app = app;
 
+        // Load in business information
         businessNameLabel.setText(business.getBusinessName());
         businessNameLabel.setVisible(true);
         addressLabel.setText(business.getBusinessAddress());
@@ -62,6 +70,38 @@ public class BusinessPageController extends AnchorPane implements Initializable 
         phoneLabel.setText(business.getBusinessPhone());
         phoneLabel.setVisible(true);
 
+        // Load in current reviews
+        ReviewLoader loader = new ReviewLoader(business.getIdNum());
+        for (BusinessReview review : loader.getReviews()) {
+            HBox reviewInfo = new HBox();
+
+            // Short for rating label
+            Label ratLab = new Label("Rating:");
+            ratLab.setTextFill(Paint.valueOf("WHITE"));
+            reviewInfo.getChildren().add(ratLab);
+
+            Label rat = new Label(review.getRating()+"");
+            rat.setTextFill(Paint.valueOf("WHITE"));
+            reviewInfo.getChildren().add(rat);
+
+
+            Label userLab = new Label("Username:");
+            userLab.setTextFill(Paint.valueOf("WHITE"));
+            reviewInfo.getChildren().add(userLab);
+
+            Label user = new Label(review.getReviewer());
+            user.setTextFill(Paint.valueOf("WHITE"));
+            reviewInfo.getChildren().add(user);
+
+
+            scrollPage.setSpacing(10.0);
+            scrollPage.getChildren().add(reviewInfo);
+            Label reviewComment = new Label(review.getComment());
+            reviewComment.setTextFill(Paint.valueOf("WHITE"));
+            reviewComment.setWrapText(true);
+            scrollPage.getChildren().add(reviewComment);
+        }
+
     }
 
     @Override
@@ -74,12 +114,7 @@ public class BusinessPageController extends AnchorPane implements Initializable 
     }
 
     @FXML
-    public void reviewBusiness(ActionEvent event) {
-        // app.goToReview(business);
-    }
-
-    @FXML
-    public void goToList(ActionEvent event) {
-        // app.goToReviewList(business);
+    public void userLogout(ActionEvent event) {
+        app.actorUserLogout();
     }
 }

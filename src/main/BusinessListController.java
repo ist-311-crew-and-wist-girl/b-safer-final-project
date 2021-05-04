@@ -74,4 +74,9 @@ public class BusinessListController extends AnchorPane implements Initializable 
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void userLogout(ActionEvent event) {
+        app.actorUserLogout();
+    }
 }

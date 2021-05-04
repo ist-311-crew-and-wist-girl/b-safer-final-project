@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.model.business.Business;
+import main.model.users.ActorUser;
 
 import java.io.InputStream;
 
@@ -86,6 +87,11 @@ public class Main extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    // Log out of application
+    public void actorUserLogout() {
+        this.goToLandingPage();
     }
 
     // Open specific BusinessPage
