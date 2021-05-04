@@ -2,6 +2,7 @@ package main.model.business;
 
 import java.beans.XMLDecoder;
 import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 
@@ -18,7 +19,7 @@ public class BusinessList {
         try {
             Business bus;
             XMLDecoder decoder;
-            decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream("D:\\git_projects_school\\b-safer-final-project\\src\\main\\model\\business\\data\\business-data.xml")));
+            decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream("src\\main\\model\\business\\data\\business-data.xml")));
             bus = new Business();
             while (bus != null) {
                 try {

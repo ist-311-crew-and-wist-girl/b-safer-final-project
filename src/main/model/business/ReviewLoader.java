@@ -21,7 +21,7 @@ public class ReviewLoader {
         try {
             BusinessReview rev;
             XMLDecoder decoder;
-            decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(file+".xml")));
+            decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream("src\\main\\model\\business\\data\\" + file + ".xml")));
             rev = new BusinessReview();
             while (rev != null) {
                 try {
