@@ -4,7 +4,6 @@ import java.beans.XMLDecoder;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.util.ArrayList;
-import main.model.users.ActorUser;
 
 public class ReviewLoader {
     ArrayList<BusinessReview> reviews;
