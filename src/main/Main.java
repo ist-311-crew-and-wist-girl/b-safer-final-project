@@ -7,6 +7,7 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import main.model.business.Business;
 
 import java.io.InputStream;
 
@@ -82,6 +83,17 @@ public class Main extends Application {
             BusinessListController businessList = (BusinessListController)
                     replaceSceneContent("templates/business-list.fxml");
             businessList.setApp(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Open specific BusinessPage
+    public void goToBusinessPage(Business business) {
+        try {
+            BusinessPageController businessPage = (BusinessPageController)
+                    replaceSceneContent("templates/business-page.fxml");
+            businessPage.setApp(this, business);
         } catch (Exception e) {
             e.printStackTrace();
         }

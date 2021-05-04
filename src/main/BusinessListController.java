@@ -6,9 +6,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 import main.model.business.Business;
 import main.model.business.BusinessList;
 
@@ -33,19 +36,29 @@ public class BusinessListController extends AnchorPane implements Initializable 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Loops through business list from XML file and sets each button's text to each business's name
-        for (Business bus : bsList.getBusinesses()) {
+        for (Business business : bsList.getBusinesses()) {
             Button iterButton = new Button();
-            iterButton.setText(bus.getBusinessName());
+            iterButton.setText(business.getBusinessName());
 
 
             // EventHandler for each button, passes business to goToBusinessPage in the Main class
-            EventHandler<MouseEvent> menuClicked = e -> {
-                        //app.goToBusinessPage(bus);
-                    };
+            EventHandler<MouseEvent> menuClicked = e -> app.goToBusinessPage(business);
 
             // Adds Event to button
             iterButton.addEventHandler(MouseEvent.MOUSE_CLICKED, menuClicked);
 
+            // Add styling to button
+            Font font = Font.font("Calibri", 36);
+            iterButton.setStyle("-fx-background-color: #333333");
+            iterButton.setTextFill(Paint.valueOf("WHITE"));
+            iterButton.setFont(font);
+            iterButton.setMaxWidth(300.0);
+            DropShadow dropShadow = new DropShadow();
+            dropShadow.setOffsetY(3.0);
+            iterButton.setEffect(dropShadow);
+            scrollBox.setSpacing(15.0);
+
+            // Make the Business Buttons visible to the user
             iterButton.setVisible(true);
 
             // Adding button to Vbox in the scrollPane
